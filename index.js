@@ -22,7 +22,7 @@ connection.connect((err) => {
   });
   
   // Define route to get students data as JSON
-  app.get('/students', (req, res) => {
+  app.get('/', (req, res) => {
     // Execute MySQL query to get students data
     connection.query('SELECT * FROM students', (err, results) => {
       if (err) {
