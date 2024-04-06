@@ -1,0 +1,5 @@
+# render.yaml
+services:
+  - type: web
+    name: my-json-api
+    buildCommand: npm install && npm start
