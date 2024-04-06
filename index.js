@@ -1,15 +1,16 @@
 // Import MySQL module
 const express = require('express');
 const mysql = require('mysql2');
+require ('dotenv').config();
 
 const app = express();
 
 // Create connection configuration
 const connection = mysql.createConnection({
-  host: 'localhost', // Change this to your MySQL server host
-  user: 'root', // Change this to your MySQL username
-  password: '', // Change this to your MySQL password
-  database: 'students-api' // Change this to your MySQL database name
+  host: process.env.DB_HOST, 
+  user: process.env.DB_USER, 
+  password: process.env.DB_PWD,
+  database: process.env.DB_NAME 
 });
 
 // Connect to MySQL database
@@ -36,7 +37,7 @@ connection.connect((err) => {
   });
   
   // Set up server to listen on port 3000
-  const port = 3000;
+  const port = process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
